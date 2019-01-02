@@ -6,7 +6,7 @@ resource "aws_subnet" "public" {
   cidr_block = "${var.public_subnet_cidrs[count.index]}"
   availability_zone = "${var.availability_zones[count.index]}"
   tags {
-     Name = "Private Subnet ${var.availability_zones[count.index]}"
+     Name = "Public Subnet ${var.availability_zones[count.index]}"
      Owner = "${var.aws_tag_owner}"
    }
 }
@@ -21,7 +21,7 @@ resource "aws_subnet" "private" {
   availability_zone = "${var.availability_zones[count.index]}"
 
   tags {
-     Name = "Public Subnet ${var.availability_zones[count.index]}"
+     Name = "Private Subnet ${var.availability_zones[count.index]}"
      Owner = "${var.aws_tag_owner}"
    }
 }
